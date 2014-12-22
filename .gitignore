@@ -1,0 +1,14 @@
+tmp/*
+backup/*
+fonts/*
+!tmp/empty_tmp
+!backup/empty_backup
+.netrwhist
+*.log
+*.so
+*.o
+*.swp
+*.swn
+*.swo
+.DS_Store
+Makefile

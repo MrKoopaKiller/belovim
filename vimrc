@@ -128,7 +128,7 @@ set wildmode=list:longest
 set hidden
 
 " set color scheme
-colorscheme molokai
+colorscheme Tomorrow-Night
 
 " enable 256 colors in terminal
 set t_Co=256
