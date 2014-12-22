@@ -118,5 +118,5 @@ if [ ! -e ~/.vimrc ]; then
   ln -s $(pwd)/vimrc ~/.vimrc
 fi
 if [ ! -e ~/.vim ]; then
-  ln -s $(pwd)/vimrc ~/.vimrc
+  ln -s $(pwd) ~/.vim
 fi
