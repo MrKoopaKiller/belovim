@@ -2,6 +2,8 @@
 # beloVIM install for linux and macosx
 # rabeloo at gmail dot com
 
+BASEDIR=$(dirname $0)
+
 function fonts_install() {
 
   if [ -d ./fonts ]; then
@@ -110,4 +112,4 @@ else
 fi
 
 # Create symbolic link
-ln -s vimrc ~/.vimrc
+ln -s $BASEDIR/vimrc ~/.vimrc
