@@ -28,7 +28,7 @@ function fonts_install() {
   if [[ -n `which fc-cache` ]]; then
     fc-cache -f $font_dir
   fi
-  echo -ne "\t+ Powerline fonts installed to $font_dir"
+  echo -ne "\t+ Powerline fonts installed to $font_dir\n"
 }
 
 function mac_install() {
@@ -39,11 +39,8 @@ function mac_install() {
   # Call fonts_install function 
   fonts_install 
   
-  echo -ne "\t+ Instalando Plugins...\n"
+  echo -ne "\t+ Installing Plugins...\n"
   $(git submodule update --init)
-  
-  echo -ne "\t+ Finishing installation...\n"
-  $(ln -s ./vimrc ~/.vimrc)
   
   echo "************* IMPORTANT ************
   
