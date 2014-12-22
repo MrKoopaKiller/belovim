@@ -110,7 +110,7 @@ else
 fi
 
 # Create symbolic link
-if [ -e ~/.vimrc ]
+if [ -e ~/.vimrc ]; then
   unlink ~/.vimrc
 fi
 
