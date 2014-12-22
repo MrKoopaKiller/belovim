@@ -224,16 +224,10 @@ map <leader>nt :NERDTreeToggle<CR>
 " JSON Format
 map <leader>jt <Esc>:%!json_xs -f json -t json-pretty<CR>
 
-" XML Format
-map <leader>xt <Esc>:1,$!xmllint --format -<CR>
-
 " Tab next
 nnoremap <C-w>k :tabnew %<CR>
 nnoremap <C-w>l :tabprevious<CR>
 nnoremap <C-w>h :tabnext<CR>
-
-" Remove file
-"nnoremap <C-D> :!rm %<CR>
 
 " Ctrlp
 " List all files with a patern
@@ -258,7 +252,8 @@ let g:syntastic_enable_signs=1
 let g:syntastic_check_on_open=1
 let g:syntastic_auto_jump=1
 let g:syntastic_enable_highlighting=1
-" Silencia os Warnings
+
+" Warnings quiet
 "let g:syntastic_quiet_warnings=1
 
 " Defines specific files extensions for highlighting
