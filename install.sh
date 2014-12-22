@@ -110,5 +110,13 @@ fi
 if [ -e ~/.vimrc ]; then
   unlink ~/.vimrc
 fi
+if [ -e ~/.vim ]; then
+  unlink ~/.vim
+fi
 
-ln -s $(pwd)/vimrc ~/.vimrc
+if [ ! -e ~/.vimrc ]; then
+  ln -s $(pwd)/vimrc ~/.vimrc
+fi
+if [ ! -e ~/.vim ]; then
+  ln -s $(pwd)/vimrc ~/.vimrc
+fi
