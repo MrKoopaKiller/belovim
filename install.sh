@@ -2,8 +2,6 @@
 # beloVIM install for linux and macosx
 # rabeloo at gmail dot com
 
-BASEDIR=$(dirname $0)
-
 function fonts_install() {
 
   if [ -d ./fonts ]; then
@@ -34,17 +32,17 @@ function fonts_install() {
 }
 
 function mac_install() {
-  echo -ne "\t+ Check dependencies..."
+  echo -ne "\t+ Check dependencies...\n"
   brew install python ctags ack homebrew/dupes/ncurses
   
-  echo -ne "\t+ Getting powerline fonts... "
+  echo -ne "\t+ Getting powerline fonts...\n"
   # Call fonts_install function 
   fonts_install 
   
-  echo -ne "\t+ Instalando Plugins..."
+  echo -ne "\t+ Instalando Plugins...\n"
   $(git submodule update --init)
   
-  echo -ne "\t+ Finishing installation..."
+  echo -ne "\t+ Finishing installation...\n"
   $(ln -s ./vimrc ~/.vimrc)
   
   echo "************* IMPORTANT ************
@@ -112,4 +110,8 @@ else
 fi
 
 # Create symbolic link
-ln -s $BASEDIR/vimrc ~/.vimrc
+if [ -e ~/.vimrc ]
+  unlink ~/.vimrc
+fi
+
+ln -s $(pwd)/vimrc ~/.vimrc
