@@ -33,7 +33,7 @@ function fonts_install() {
 
 function mac_install() {
   echo -ne "\t+ Check dependencies..."
-  brew install ctags ncurses-term ack-grep
+  brew install ctags ack homebrew/dupes/ncurses
   
   echo -ne "\t+ Getting powerline fonts... "
   # Call fonts_install function 
