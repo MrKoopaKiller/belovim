@@ -1,15 +1,14 @@
 # beloVIM
-> Beta version
+> Beta version v0.86
 
 ### Dependencies
 
-  - Packages for MACOS
-     brew (for MacOSX)
-     python (for MaCOSX)
-     git
-     ack-grep
-     exeburant-ctags
-     libjson-xs-perl
+- brew (just MacOSX)
+- python (just MacOSX)
+- git
+- ack-grep
+- exeburant-ctags
+- libjson-xs-perl
 
 #### Configuring
 
@@ -26,6 +25,9 @@
 ### Install
 ##### Using Installer
  - beloVIM includes a files called ```install.sh``` just run to install all dependencies.
+
+##### Manual install
+- in progress...
 
 ### Basic Commands
 ```
