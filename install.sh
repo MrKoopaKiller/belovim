@@ -96,8 +96,6 @@ function linux_install() {
   
   echo "Installing Plugins..."
   git submodule update --init
-  # Call fonts_install function 
-  fonts_install
 }
 
 if [[ $(uname) == 'Darwin' ]]; then
