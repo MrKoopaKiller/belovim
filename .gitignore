@@ -1,6 +1,5 @@
 tmp/*
 backup/*
-fonts/*
 !tmp/empty_tmp
 !backup/empty_backup
 .netrwhist

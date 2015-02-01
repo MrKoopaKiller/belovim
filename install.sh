@@ -95,6 +95,7 @@ function linux_install() {
   fi
   
   echo "Installing Plugins..."
+  git submodule sync
   git submodule update --init
 }
 
