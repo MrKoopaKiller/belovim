@@ -1,5 +1,5 @@
 # beloVIM
-> Beta version v0.86
+> Beta version v0.9.1
 
 ### Dependencies
 
@@ -27,7 +27,10 @@
  - beloVIM includes a files called ```install.sh``` just run to install all dependencies.
 
 ##### Manual install
-- in progress...
+- Clone the repository and make a symbolic link of belovim folder and vimrc file to your home folder:
+``` ln -s belovim/ $HOME/.vim
+    ln -s $HOME/vimrc $HOME/.vimrc
+```
 
 ### Basic Commands
 ```
@@ -36,10 +39,13 @@
   ,nt                     => Open/Close NerdTree
   ,b                      => Open/Close Method Verifier
   ,be                     => Open/Close Buffer Explorer
+  ,bt                     =>Open/Clone Functions panel
   ,p                      => Open installigent seach of files
+  ,l                      => Alternates between the last two open files in buffer
   Ctrl+p                  => Press some times to choose what content of buffer do you wish to paste
-  Ctrl+←                  => Navegate to left buffer
-  Ctrl+→                  => Navegate to right buffer
+  Ctrl+←                  => Navegate to left buffer (only linux)
+  Ctrl+→                  => Navegate to right buffer (only linux)
   F12                     => Add/Remove line indicators, end line and alters
+  :w!!                    => Save file with sudo privileges
 ```
 Fork of 'dotvim' project. See https://github.com/bvicenzo/dotvim for more information
