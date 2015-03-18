@@ -1,9 +1,12 @@
 # beloVIM
-> Beta version v0.9.1
+> beta v0.9.1
+
+### Prerequisites
+- brew (just MacOSX)
+- git
 
 ### Dependencies
 
-- brew (just MacOSX)
 - python (just MacOSX)
 - git
 - ack-grep
@@ -16,7 +19,7 @@
     Install fonts of https://github.com/powerline/fonts
     Oficial Documentation:
       http://powerline.readthedocs.org/en/master/installation/osx.html
-  
+
   - PowerLine for Ubuntu
     Install fonts of https://github.com/Lokaltog/powerline-fonts/tree/master/UbuntuMono
     Oficial Documentation:
@@ -24,17 +27,18 @@
 
 ### Install
 ##### Using Installer
- - beloVIM includes a files called ```install.sh``` just run to install all dependencies.
+- beloVIM includes a files called ```install.sh``` just run to install all dependencies.
 
 ##### Manual install
 - Clone the repository and make a symbolic link of belovim folder and vimrc file to your home folder:
-``` 
-    ln -s belovim/ $HOME/.vim
-    ln -s $HOME/vimrc $HOME/.vimrc
+```
+$ ln -s belovim/ $HOME/.vim
+$ ln -s $HOME/vimrc $HOME/.vimrc
+```
 
-### Updating
-  Since the version v0.9.0 beloVIM includes a new simple update script.
-    Just call the ```update.sh``` to update beloVIM and all submodules.
+#### Updating
+- Since the version v0.9.0 beloVIM includes a new simple update script.
+  Just call the ```update.sh``` to update beloVIM and all submodules.
 
 ### Basic Commands
 ```
@@ -51,6 +55,5 @@
   Ctrl+→                  => Navegate to right buffer (only linux)
   F12                     => Add/Remove line indicators, end line and alters
   :w!!                    => Save file with sudo privileges
-
 ```
 Fork of 'dotvim' project. See https://github.com/bvicenzo/dotvim for more information
