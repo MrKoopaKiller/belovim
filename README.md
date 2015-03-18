@@ -32,6 +32,10 @@
     ln -s $HOME/vimrc $HOME/.vimrc
 ```
 
+### Updating
+  Since the version v0.9.0 beloVIM includes a new simple update script.
+    Just call the ```update.sh``` to update beloVIM and all submodules.
+
 ### Basic Commands
 ```
   :Ack [pattern]          => Search for a pattern inside project
