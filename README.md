@@ -28,9 +28,9 @@
 
 ##### Manual install
 - Clone the repository and make a symbolic link of belovim folder and vimrc file to your home folder:
-``` ln -s belovim/ $HOME/.vim
+``` 
+    ln -s belovim/ $HOME/.vim
     ln -s $HOME/vimrc $HOME/.vimrc
-```
 
 ### Updating
   Since the version v0.9.0 beloVIM includes a new simple update script.
@@ -51,5 +51,6 @@
   Ctrl+→                  => Navegate to right buffer (only linux)
   F12                     => Add/Remove line indicators, end line and alters
   :w!!                    => Save file with sudo privileges
+
 ```
 Fork of 'dotvim' project. See https://github.com/bvicenzo/dotvim for more information
