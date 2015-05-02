@@ -59,10 +59,10 @@ function mac_install() {
   Enjoy it!
   Thanks!
   ***********************************"
-  # call make_alias function
-  make_alias
   #call initialize function
   initialize
+  # call make_alias function
+  make_alias
 }
 
 function linux_install() {
@@ -102,10 +102,10 @@ function linux_install() {
      mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
    fi
   fi
-  # call make_alias function
-  make_alias
   #call initialize function
   initialize
+  # call make_alias function
+  make_alias
 }
 
 function make_alias() {

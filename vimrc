@@ -50,7 +50,7 @@ filetype indent on                                                   " enable fi
 NeoBundleCheck
 
 let mapleader="\<Space>"                                             " change leader key
-colorscheme moloka                                                   " set color scheme
+colorscheme molokai                                                  " set color scheme
 
 set clipboard=unnamedplus                                            " enable YankRing to clipboard
 set laststatus=2                                                     " always show status bat
