@@ -1,7 +1,5 @@
-tmp/*
-backup/*
-!tmp/empty_tmp
-!backup/empty_backup
+bundle/*
+fonts/*
 .netrwhist
 *.log
 *.so

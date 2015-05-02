@@ -42,80 +42,35 @@ NeoBundle 'vim-scripts/matchit.zip'
 NeoBundle 'vim-scripts/taglist.vim'
 call neobundle#end()
 
-syntax on                                                            " enable syntax highlighting
-filetype on                                                          " enable
-filetype plugin on                                                   " enable file type detection
-filetype indent on                                                   " enable filetype-based indentation
+filetype plugin indent on      " enable file type detection
 
 NeoBundleCheck
 
-let mapleader="\<Space>"                                             " change leader key
-colorscheme molokai                                                  " set color scheme
-
-set clipboard=unnamedplus                                            " enable YankRing to clipboard
-set laststatus=2                                                     " always show status bat
-set history=1000                                                     " size of history
-set showcmd                                                          " show incomplete commands
-set list                                                             " show invisibles
-set listchars=tab:▸\ ,eol:¬                                          " use the same symbols as TextMate for tabstops and EOLs
-set number                                                           " show line numbers
-set linebreak                                                        " don't break wrapped lines on words
-set nowrap                                                           " set no word rap line
-set cc=120                                                           " highlight N columns
-set cursorcolumn                                                     " show highlight columns on cursor
-set mouse=a                                                          " enable vim mouse detection
-set backspace=indent,eol,start                                       " intuitive backspacing
-set fileformats=unix,mac,dos                                         " EOL format
-set cursorline                                                       " highlight cursor line
-set incsearch                                                        " highlight matches as you type
-set hlsearch                                                         " highlight matches
-set scrolloff=3                                                      " show 3 lines of context around the cursor
-set ignorecase smartcase                                             " ignore case while searching except if there's an uppercase letter
-set shiftwidth=2                                                     " indent: number of spaces used for (auto)indent
-set expandtab                                                        " indent: use soft tabs (spaces)
-set softtabstop=2                                                    " indent: size of soft tabs
-set autoindent                                                       " indent: auto indent lines
-set smartindent                                                      " indent: smart (language based) auto indent
-set statusline=%f                                                    " statusbar: tail of the filename
-set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},                    " statusbar: file encoding
-set statusline+=\ %{&ff}]                                            " statusbar: file format
-set statusline+=\ %r                                                 " statusbar: Opened type (read-only)
-set statusline+=\ %m                                                 " statusbar: Modify?
-set statusline+=\ %y                                                 " statusbar: File type (vim, php, ruby)
-set statusline+=\ %{fugitive#statusline()}                           " statusbar: Git
-set statusline+=\ %{exists('g:loaded_rvm')?rvm#statusline():''}      " statusbar: RVM
-set statusline+=%=                                                   " statusbar: left/right separator
-set statusline+=%c,                                                  " statusbar: cursor column
-set statusline+=%l/%L                                                " statusbar: cursor line/total lines
-set statusline+=\ %P                                                 " statusbar: percent through file
-set statusline+=%#warningmsg#                                        " syntastic warning
-set statusline+=%{SyntasticStatuslineFlag()}                         " syntastic warning
-set statusline+=%*                                                   " syntastic warning
-
-map <F12> :set list! \| set nu! \| call gitgutter#toggle()<CR>       " hidden line number, end line and changes indicators
-imap <F12> <c-o>:set list! \| set nu! \| call gitgutter#toggle()<CR> " hidden line number, end line and changes indicators
-map <leader>T :TlistToggle<CR>                                       " TagList of functions
-nmap <leader><leader> V                                              " Enter in VISUAL mode
-vmap v <Plug>(expand_region_expand)                                  " vim-expand-region: Expand selection
-vmap <C-v> <Plug>(expand_region_shrink)                              " vim-expand-region: Restore previous slection
-
-nnoremap <CR> G                                                      " go to end of file <ENTER>
-nnoremap <BS> gg                                                     " go to the beginning of file <BACKSPACE>
-nnoremap <silent> <C-L> :nohlsearch<CR><C-L>                         " clear text highlighted
-nnoremap <leader>y :YRShow<CR>                                       " YankRing key
-nnoremap <leader>w :w<CR>                                            " quickly save file
-nnoremap <leader>x :x<CR>                                            " quickly exit without save
-nnoremap <leader>p :CtrlP<CR>                                        " CtrlP: List all files with a patern
-nnoremap <leader>P :CtrlPBuffer<CR>                                  " CtrlP: List all files with a patern in buffer
-nnoremap <leader>l :e#<CR>                                           " switch to last used buffer
-nnoremap <leader>y :YRShow<CR>                                       " YankRing mapping
-
-let g:syntastic_error_symbol        = '✗'                            " Enable syntastic syntax checking
-let g:syntastic_warning_symbol      = '⚠'                            " Enable syntastic syntax checking
-let g:syntastic_enable_signs        = 1                              " Enable syntastic syntax checking
-let g:syntastic_check_on_open       = 1                              " Enable syntastic syntax checking
-let g:syntastic_auto_jump           = 1                              " Enable syntastic syntax checking
-let g:syntastic_enable_highlighting = 1                              " Enable syntastic syntax checking
+syntax on                      " enable syntax highlighting
+filetype on                    " auto detect the type of file that is being edited
+set showcmd                    " show incomplete commands
+set list                       " show invisibles
+set listchars=tab:▸\ ,eol:¬    " use the same symbols as TextMate for tabstops and EOLs
+set number                     " show line numbers
+set linebreak                  " don't break wrapped lines on words
+set nowrap                     " set no word rap line
+set cc=120                     " highlight N columns
+set cursorcolumn               " show highlight columns on cursor
+set mouse=a                    " Hablitite vim for receive mouse clicks
+set clipboard=unnamedplus      " Habilite vim yank to clipboard
+set backspace=indent,eol,start " intuitive backspacing
+set fileformats=unix,mac,dos   " EOL format
+set cursorline                 " highlight cursor line
+set incsearch                  " highlight matches as you type
+set hlsearch                   " highlight matches
+set scrolloff=3                " show 3 lines of context around the cursor
+set ignorecase smartcase       " ignore case while searching except if there's an uppercase letter
+set shiftwidth=2               " number of spaces used for (auto)indent
+set expandtab                  " use soft tabs (spaces)
+set softtabstop=2              " size of soft tabs
+set autoindent                 " auto indent lines
+set smartindent                " smart (language based) auto indent
+set history=100                " keep 100 cmdline history
 
 " Enable backup and undo by default
 let s:dir      = has('win32') ? '$APPDATA/Vim' : isdirectory($HOME.'/Library') ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
@@ -128,18 +83,46 @@ if !isdirectory(expand(s:dir))
   call system("mkdir -p " . expand(s:dir) . "/{backup,undo,tmp}")
 end
 
-" Tabularize maps
-if exists(":Tabularize")
-  nmap <leader>a= :Tabularize /=<CR>
-  vmap <leader>a= :Tabularize /=<CR>
-  nmap <leader>z: :Tabularize /:\zs<CR>
-  vmap <leader>z: :Tabularize /:\zs<CR>
-endif
+" Useful status information at bottom of screen
+"set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}\ %{exists('g:loaded_rvm')?rvm#statusline():''}\ %=%-16(\ %l,%c-%v\ %)%P
+set statusline=%f                                                   " tail of the filename
+set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},                   " file encoding
+set statusline+=\ %{&ff}]                                           " file format
+set statusline+=\ %r                                                " Opened type (read-only)
+set statusline+=\ %m                                                " Modify?
+set statusline+=\ %y                                                " File type (vim, php, ruby)
+set statusline+=\ %{fugitive#statusline()}                          " Git
+set statusline+=\ %{exists('g:loaded_rvm')?rvm#statusline():''}     " RVM
+set statusline+=%=                                                  " left/right separator
+set statusline+=%c,                                                 " cursor column
+set statusline+=%l/%L                                               " cursor line/total lines
+set statusline+=\ %P                                                " percent through file
+set statusline+=%#warningmsg#                                       " Warning syntastic
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-" Warnings quiet
-let g:syntastic_quiet_messages = {'level': 'warnings'}
- run the above commands only if vim is compiled with autocmd
+let g:airline_powerline_fonts = 1                                   " Airline
+let g:airline#extensions#tabline#enabled = 1                        " Buffer line (top)
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
+:noremap <C-left> :bprev<CR>                                        " Buffer Navigation
+:noremap <C-right> :bnext<CR>
+
+set wildmenu                                                        " enhanced command line completion
+set wildmode=list:longest                                           " complete files like a shell
+set hidden                                                          " handle multiple buffers better
+colorscheme molokai                                                 " set color scheme
+set t_Co=256                                                        " enable 256 colors in terminal
+let mapleader="\<Space>"                                            " change leader key
+nnoremap ; :                                                        " save keystrokes, so we don't need to press the Shift key
+nnoremap <leader>l :e#<CR>                                          " switch to last used buffer
+nnoremap <leader>y :YRShow<CR>                                      " YankRing mapping
+nmap <silent> <leader>/ :nohlsearch<CR>                             " clears the search register
+nmap <silent> <leader>bd <Plug>Kwbd                                 " keep window on buffer delete
+nmap <silent> <leader>b :TagbarToggle<CR>                           " use tagbar
+cmap w!! w !sudo tee % >/dev/null                                   " use sudo to write the file
+
+" run the above commands only if vim is compiled with autocmd
 if has("autocmd")
   autocmd BufWritePost .vimrc source $MYVIMRC " apply .vimrc settings on save
   autocmd BufWritePre *.rb,*.erb,*.html,*.js,*.css,*.php,*.py,*.json :call <SID>StripTrailingWhitespaces() " remove trailing white spaces before saving (only in specified filetypes)
@@ -149,7 +132,7 @@ endif
 " http://vimcasts.org/episodes/tidying-whitespace/
 
 function! <SID>StripTrailingWhitespaces()
- Preparation: save last search, and cursor position.
+  " Preparation: save last search, and cursor position.
   let _s=@/
   let l = line(".")
   let c = col(".")
@@ -194,10 +177,34 @@ function! Wipeout()
   endtry
 endfunction
 
-map <leader>bw :call Wipeout()<CR>  " mapping for function above
+map <leader>bw :call Wipeout()<CR>                        " mapping for function above
+map <leader>nt :NERDTreeToggle<CR>                        " NerdTree
+map <leader>jt <Esc>:%!json_xs -f json -t json-pretty<CR> " JSON Format
+nnoremap <C-w>k :tabnew %<CR>                             " Tab next
+nnoremap <C-w>l :tabprevious<CR>
+nnoremap <C-w>h :tabnext<CR>
+nnoremap <leader>p :CtrlP<CR>                             " List all files with a patern
+nnoremap <leader>P :CtrlPBuffer<CR>                       " List all files with a patern in buffer
+nnoremap <leader>l :e#<CR>                                " switch to last used buffer
+nnoremap <leader>y :YRShow<CR>                            " YankRing mapping
+map <leader>T :TlistToggle<CR>                            " TagList of functions
 
+let g:syntastic_error_symbol='✗' " Enable syntastic syntax checking
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_enable_signs=1
+let g:syntastic_check_on_open=1
+let g:syntastic_auto_jump=1
+let g:syntastic_enable_highlighting=1
 
 " Defines specific files extensions for highlighting
 if has("syntax")
   au BufNewFile,BufRead *.jsonify set filetype=ruby
 endif
+
+" Toggle for add and remove line number, end line, and changes indicators
+" Good for copy multilines from vim (for example)
+imap <F12> <c-o>:set list! \| set nu! \| call gitgutter#toggle()<CR>
+map <F12> :set list! \| set nu! \| call gitgutter#toggle()<CR>
+
+vmap v <Plug>(expand_region_expand)     " vim-expand-region: Expand selection
+vmap <C-v> <Plug>(expand_region_shrink) " vim-expand-region: Restore previous slection
