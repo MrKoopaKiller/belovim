@@ -1,5 +1,5 @@
 " belovim by Raphael Rabelo
-" github.com/rabeloo/blovim
+" github.com/rabeloo/belovim
 "
 if !1 | finish | endif
 
@@ -136,8 +136,8 @@ if exists(":Tabularize")
   vmap <leader>z: :Tabularize /:\zs<CR>
 endif
 
- Warnings quiet
-let g:syntastic_quiet_warnings=1
+" Warnings quiet
+let g:syntastic_quiet_messages = {'level': 'warnings'}
  run the above commands only if vim is compiled with autocmd
 
 if has("autocmd")
@@ -145,8 +145,8 @@ if has("autocmd")
   autocmd BufWritePre *.rb,*.erb,*.html,*.js,*.css,*.php,*.py,*.json :call <SID>StripTrailingWhitespaces() " remove trailing white spaces before saving (only in specified filetypes)
 endif
 
- function to remove trailing white space (while saving cursor position)
- http://vimcasts.org/episodes/tidying-whitespace/
+" function to remove trailing white space (while saving cursor position)
+" http://vimcasts.org/episodes/tidying-whitespace/
 
 function! <SID>StripTrailingWhitespaces()
  Preparation: save last search, and cursor position.
@@ -160,7 +160,7 @@ function! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 
- function to delete all hidden buffers
+" function to delete all hidden buffers
 function! Wipeout()
   " list of *all* buffer numbers
   let l:buffers = range(1, bufnr('$'))
@@ -197,7 +197,7 @@ endfunction
 map <leader>bw :call Wipeout()<CR>  " mapping for function above
 
 
- Defines specific files extensions for highlighting
+" Defines specific files extensions for highlighting
 if has("syntax")
   au BufNewFile,BufRead *.jsonify set filetype=ruby
 endif

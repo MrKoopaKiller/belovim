@@ -4,7 +4,7 @@
 
 function base_install() {
   echo -ne "\t+ Installing base files...\n"
-  git clone https://github.com/Shougo/neobundle.vim bundle/neobundle.vim
+  $(git clone -q https://github.com/Shougo/neobundle.vim bundle/neobundle.vim)
 }
 
 function fonts_install() {
@@ -13,7 +13,7 @@ function fonts_install() {
     rm -rf ./fonts
   fi
 
-  $(git clone https://github.com/powerline/fonts.git)
+  $(git clone -q https://github.com/powerline/fonts.git)
 
   powerline_fonts_dir=$( cd "$( dirname "$0" )" && pwd )
   find_command="find \"$powerline_fonts_dir\" \( -name '*.[o,t]tf' -or -name '*.pcf.gz' \) -type f -print0"
@@ -61,8 +61,6 @@ function mac_install() {
   ***********************************"
   #call initialize function
   initialize
-  # call make_alias function
-  make_alias
 }
 
 function linux_install() {
@@ -104,30 +102,27 @@ function linux_install() {
   fi
   #call initialize function
   initialize
-  # call make_alias function
-  make_alias
-}
-
-function make_alias() {
-  # Create symbolic link
-  if [ -e ~/.vimrc ]; then
-    unlink ~/.vimrc
-  fi
-  if [ -e ~/.vim ]; then
-    unlink ~/.vim
-  fi
-  if [ ! -e ~/.vimrc ]; then
-    ln -s $(pwd)/vimrc ~/.vimrc
-  fi
-  if [ ! -e ~/.vim ]; then
-    ln -s $(pwd) ~/.vim
-  fi
 }
 
 function initialize() {
   echo -ne "\t+ Initializing...\n"
   vim +NeoBundleInstall +qall
 }
+
+# Remove your current alias to .vim and .vimrc
+if [ -e ~/.vimrc ]; then
+  unlink ~/.vimrc
+fi
+if [ -e ~/.vim ]; then
+  unlink ~/.vim
+fi
+# Create new symbolic links to belovim
+if [ ! -e ~/.vimrc ]; then
+  ln -s $(pwd)/vimrc ~/.vimrc
+fi
+if [ ! -e ~/.vim ]; then
+  ln -s $(pwd) ~/.vim
+fi
 
 if [[ $(uname) == 'Darwin' ]]; then
   mac_install
