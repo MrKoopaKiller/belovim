@@ -1,6 +1,7 @@
 " belovim by Raphael Rabelo
 " github.com/rabeloo/belovim
 "
+"
 if !1 | finish | endif
 
 if has('vim_starting')
@@ -18,9 +19,8 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'corntrace/bufexplorer'
 NeoBundle 'elzr/vim-json'
-NeoBundleLazy 'fisadev/vim-isort'
+NeoBundle 'fisadev/vim-isort'
 NeoBundle 'godlygeek/tabular'
-NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'mileszs/ack.vim'
@@ -57,7 +57,7 @@ set nowrap
 set cc=120
 set cursorcolumn
 set mouse=a
-set clipboard=unnamedplus
+set clipboard=unnamed
 set backspace=indent,eol,start
 set fileformats=unix,mac,dos
 set cursorline
@@ -104,9 +104,6 @@ set statusline+=%*
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#formatter='unique_tail_improved'
-
-:noremap <C-left> :bprev<CR>
-:noremap <C-right> :bnext<CR>
 
 set wildmenu
 set wildmode=list:longest
@@ -169,13 +166,6 @@ endfunction
 map <leader>bw :call Wipeout()<CR>
 map <leader>nt :NERDTreeToggle<CR>
 map <leader>jt <Esc>:%!json_xs -f json -t json-pretty<CR>
-nnoremap <C-w>k :tabnew %<CR>
-nnoremap <C-w>l :tabprevious<CR>
-nnoremap <C-w>h :tabnext<CR>
-nnoremap <leader>p :CtrlP<CR>
-nnoremap <leader>P :CtrlPBuffer<CR>
-nnoremap <leader>l :e#<CR>
-nnoremap <leader>y :YRShow<CR>
 map <leader>T :TlistToggle<CR>
 
 let g:syntastic_error_symbol='✗'
@@ -195,7 +185,22 @@ map <F12> :set list! \| set nu! \| call gitgutter#toggle()<CR>
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
+nnoremap <leader>l :e#<CR>
+nnoremap <leader>y :YRShow<CR>
+
 nnoremap <CR> G
 nnoremap <BS> gg
 nnoremap <leader>x :x<CR>
 nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q!<CR>
+
+:noremap > :bprev<CR>
+:noremap < :bnext<CR>
+noremap <leader>o :tabnew<CR>
+
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P

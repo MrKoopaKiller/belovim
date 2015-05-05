@@ -35,7 +35,7 @@ function fonts_install() {
 
 function mac_install() {
   echo -ne "\t+ Checking dependencies...\n"
-  brew install python ctags ack homebrew/dupes/ncurses
+  brew install vim python ctags ack homebrew/dupes/ncurses
 
   # call base_install function
   base_install
@@ -43,6 +43,11 @@ function mac_install() {
   echo -ne "\t+ Getting powerline fonts...\n"
   # Call fonts_install function
   fonts_install
+
+  # Change to the homebrew VIM...
+
+  $(sudo mv /usr/bin/vim /usr/bin/vim_old)
+  $(sudo ln -s /usr/local/bin/vim /usr/local/bin)
 
   echo "************* IMPORTANT ************
 
@@ -59,6 +64,7 @@ function mac_install() {
   Enjoy it!
   Thanks!
   ***********************************"
+
   #call initialize function
   initialize
 }

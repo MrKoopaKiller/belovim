@@ -40,21 +40,36 @@ $ ln -s $HOME/vimrc $HOME/.vimrc
 $ vim +NeoBundleInstall +qall
 ```
 
-### Some custom shortcuts
-```
-  Leader key = <Space>
+### Customs key mappings
 
-  :Ack [pattern]          => Search for a pattern inside project
-  :Tabularise /[caracter] => Align the selected text with the choosed caracter
-  <leader>nt                     => Open/Close NerdTree
-  <leader>b                      => Open/Close Method Verifier
-  <leader>be                     => Open/Close Buffer Explorer
-  <leader>bt                     =>Open/Clone Functions panel
-  <leader>p                      => Open installigent seach of files
-  <leader>l                      => Alternates between the last two open files in buffer
-  Ctrl+p                         => Press some times to choose what content of buffer do you wish to paste
-  Ctrl+←                          => Navegate to left buffer (only linux)
-  Ctrl+→                  => Navegate to right buffer (only linux)
-  F12                     => Add/Remove line indicators, end line and alters
-  :w!!                    => Save file with sudo privileges
+#### Follow the leader!
+```
+  Leader key             => <Space>
+```
+
+#### Managing open files
+```
+  <leader> + y           => Copy to system clipboard
+  <leader> + p           => Paste the system clipboard
+  <shift>  + <           => Navegate to left buffer
+  <shift>  + >           => Navegate to right buffer
+  <leader> + o           => Open a new tab
+  <leader> + l           => Alternates between the last two open files in buffer
+```
+
+#### Utils
+```
+  :Ack {pattern}         => Search for a pattern inside project
+  :Tab /{pattern}        => Align the selected text with the choosed caracter
+
+  <leader> + nt          => Open/Close NerdTree
+  <leader> + b           => Open/Close Method Verifier
+  <leader> + be          => Open/Close Buffer Explorer
+  <leader> + bt          => Open/Clone Functions panel
+```
+
+#### Other key mappings
+```
+  F12                    => Add/Remove line indicators, end line and alters
+  :w!!                   => Save file with sudo privileges
 ```
