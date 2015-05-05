@@ -1,4 +1,5 @@
-# beloVIM
+# belovim
+vimrc
 > v2.0.0
 
 ### Prerequisites
@@ -27,7 +28,7 @@
 
 ### Easier Install
 ##### Using Installer
-- beloVIM includes a files called ```install.sh``` just run to install all dependencies.
+- belovim includes a files called ```install.sh``` just run to install all dependencies.
 
 ##### Manual install
 - Clone the repository and make a symbolic link of belovim folder and vimrc file to your home folder:
