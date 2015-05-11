@@ -33,6 +33,7 @@ NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'vim-scripts/AutoComplPop'
 NeoBundle 'vim-scripts/AutoTag'
 NeoBundle 'vim-scripts/YankRing.vim'
@@ -194,8 +195,8 @@ nnoremap <leader>x :x!<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q!<CR>
 
-:noremap > :bprev<CR>
-:noremap < :bnext<CR>
+:noremap <leader>> :bprev<CR>
+:noremap <leader>< :bnext<CR>
 noremap <leader>o :tabnew<CR>
 nnoremap <leader>l :set hlsearch!<CR>
 
