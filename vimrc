@@ -190,17 +190,18 @@ nnoremap <leader>y :YRShow<CR>
 
 nnoremap <CR> G
 nnoremap <BS> gg
-nnoremap <leader>x :x<CR>
+nnoremap <leader>x :x!<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q!<CR>
 
 :noremap > :bprev<CR>
 :noremap < :bnext<CR>
 noremap <leader>o :tabnew<CR>
+nnoremap <leader>l :set hlsearch!<CR>
 
 vmap <Leader>y "+y
 vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
+nmap <Leader>p "+p
+nmap <Leader>P "+P

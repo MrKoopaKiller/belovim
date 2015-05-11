@@ -50,27 +50,30 @@ $ vim +NeoBundleInstall +qall
 
 #### Managing open files
 ```
-  <leader> + y           => Copy to system clipboard
-  <leader> + p           => Paste the system clipboard
-  <shift>  + <           => Navegate to left buffer
-  <shift>  + >           => Navegate to right buffer
-  <leader> + o           => Open a new tab
-  <leader> + l           => Alternates between the last two open files in buffer
+  <leader> + y          => Copy to system clipboard
+  <leader> + p          => Paste the system clipboard
+  <shift>  + <          => Navegate to left buffer
+  <shift>  + >          => Navegate to right buffer
+  <leader> + o          => Open a new tab
+  <leader> + l          => Alternates between the last two open files in buffer
+  <leader> + w          => Quickly save file (:w)
+  <leader> + x          => Quickly save and exit (:wq!)
+  <leader> + q          => Quickly exit (:q!)
 ```
 
 #### Utils
 ```
-  :Ack {pattern}         => Search for a pattern inside project
-  :Tab /{pattern}        => Align the selected text with the choosed caracter
-
-  <leader> + nt          => Open/Close NerdTree
-  <leader> + b           => Open/Close Method Verifier
-  <leader> + be          => Open/Close Buffer Explorer
-  <leader> + bt          => Open/Clone Functions panel
+  :Ack {pattern}        => Search for a pattern inside project
+  :Tab /{pattern}       => Align the selected text with the choosed caracter
+  <leader> + l          => Clear search highlights
+  <leader> + nt         => Open/Close NerdTree
+  <leader> + b          => Open/Close Method Verifier
+  <leader> + be         => Open/Close Buffer Explorer
+  <leader> + bt         => Open/Clone Functions panel
 ```
 
 #### Other key mappings
 ```
-  F12                    => Add/Remove line indicators, end line and alters
-  :w!!                   => Save file with sudo privileges
+  F12                   => Add/Remove line indicators, end line and alters
+  :w!!                  => Save file with sudo privileges
 ```
