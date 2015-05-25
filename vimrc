@@ -55,7 +55,7 @@ set listchars=tab:▸\ ,eol:¬
 set number
 set linebreak
 set nowrap
-set cc=120
+set cc=80
 set cursorcolumn
 set mouse=a
 set clipboard=unnamed
