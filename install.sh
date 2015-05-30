@@ -77,7 +77,7 @@ function linux_install() {
     packs="exuberant-ctags ack ncurses-term libjson-xs-perl"
   elif [ -f /usr/bin/yum ]; then
     packager="yum"
-    packs="git ctags-etags ack ncurses-term perl-JSON-XS"
+    packs="git ctags-etags ack-grep ncurses-term perl-JSON-XS"
   else
     echo "ERR: Package Manager not indentified. Please install manually."
     exit 1
