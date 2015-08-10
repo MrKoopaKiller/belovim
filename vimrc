@@ -31,6 +31,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'slim-template/vim-slim'
+NeoBundle 'stephpy/vim-yaml'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
@@ -254,3 +255,5 @@ nnoremap <leader>h :set hlsearch!<CR>
 
 " Clean search highlight
 nmap <silent> <leader>/ :nohlsearch<CR>
+
+autocmd VimEnter * echo "[+] Welcome to belovim!"

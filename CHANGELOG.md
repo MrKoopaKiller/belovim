@@ -1,5 +1,9 @@
 # Changelog
 
+### belovim 2.1.2 (2015-08-10)
+- Fix bug that crash yaml files
+
+
 ### belovim 2.1.1 (2015-08-10)
 - Fix bug that not showing statusline
 - Fix bug <leader>l map key
