@@ -1,18 +1,19 @@
 # belovim
 vimrc
-> v2.0.0
+> v2.1.1
 
 ### Prerequisites
-- brew (just MacOSX)
-- git
+- [Brew for Mac OSX](http://brew.sh) 
+- [Git](https://git-scm.com)
+- [Powerline](https://powerline.readthedocs.org/en/latest/)
 
 ### Dependencies
 
-- python (just MacOSX)
-- git
+- python (MacOSX)
 - ack-grep
 - exeburant-ctags
 - libjson-xs-perl
+- vim-gtk (Fedora)
 
 #### Configuring
 
@@ -52,28 +53,39 @@ $ vim +NeoBundleInstall +qall
 ```
   <leader> + y          => Copy to system clipboard
   <leader> + p          => Paste the system clipboard
-  <shift>  + <          => Navegate to left buffer
-  <shift>  + >          => Navegate to right buffer
-  <leader> + o          => Open a new tab
-  <leader> + l          => Alternates between the last two open files in buffer
+  <leader> n            => Open a new tab
+  <leader> .            => Move to next tab
+  <leader> ,            => Move to previous tab
+  <leader> q            => Close current tab
+  <leader> l            => Alternates between the last buffer
   <leader> + w          => Quickly save file (:w)
   <leader> + x          => Quickly save and exit (:wq!)
-  <leader> + q          => Quickly exit (:q!)
+```
+
+#### Searching
+```
+  :Ack {pattern}        => Search for a pattern inside project
+  <leader> + h          => Hide search highlights (hlsearch!)
+  <leader> + /          => Clear search highlights
+```
+
+#### Editing
+```
+  :Tab /{pattern}       => Align the selected text with the chose character
 ```
 
 #### Utils
 ```
-  :Ack {pattern}        => Search for a pattern inside project
-  :Tab /{pattern}       => Align the selected text with the choosed caracter
-  <leader> + l          => Clear search highlights
-  <leader> + nt         => Open/Close NerdTree
-  <leader> + b          => Open/Close Method Verifier
-  <leader> + be         => Open/Close Buffer Explorer
-  <leader> + bt         => Open/Clone Functions panel
+  <leader> + nt          => Open/Close NERDTree
+  <leader> + b           => Open/Close Tagbar (functions panel)
+  <leader> + be          => Open/Close Buffer Explorer
 ```
 
-#### Other key mappings
+#### Functions
 ```
-  F12                   => Add/Remove line indicators, end line and alters
-  :w!!                  => Save file with sudo privileges
+  F5     => StripTrailingWhitespaces: Remove trailing spaces in the entire text.
+  F4     => DelBlank: Delete double blank lines.
+  F7     => Wipeout: Destroy all buffers that are not open in any tabs or windows.
+  F12    => Remove numbers and formatters
+  :w!!   => Save file with sudo privileges
 ```

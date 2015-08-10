@@ -1,7 +1,6 @@
 " belovim by Raphael Rabelo
 " github.com/rabeloo/belovim
 "
-"
 if !1 | finish | endif
 
 if has('vim_starting')
@@ -14,9 +13,10 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Manage plugin
+" Plugins Manager
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'corntrace/bufexplorer'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'godlygeek/tabular'
@@ -41,8 +41,8 @@ NeoBundle 'vim-scripts/endwise.vim'
 NeoBundle 'vim-scripts/kwbdi.vim'
 NeoBundle 'vim-scripts/matchit.zip'
 NeoBundle 'vim-scripts/taglist.vim'
-call neobundle#end()
 
+call neobundle#end()
 filetype plugin indent on
 
 NeoBundleCheck
@@ -50,6 +50,7 @@ NeoBundleCheck
 syntax on
 filetype on
 set showcmd
+set hidden
 set list
 set listchars=tab:▸\ ,eol:¬
 set number
@@ -72,6 +73,20 @@ set softtabstop=2
 set autoindent
 set smartindent
 set history=100
+set laststatus=2
+
+" Command line completion
+set wildmenu
+set wildmode=longest:full,full
+
+" Set color scheme
+colorscheme molokai
+
+" Use 256 colors
+set t_Co=256
+
+" Mapping the leader key
+let mapleader="\<Space>"
 
 " Enable backup and undo by default
 let s:dir      = has('win32') ? '$APPDATA/Vim' : isdirectory($HOME.'/Library') ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
@@ -84,8 +99,7 @@ if !isdirectory(expand(s:dir))
   call system("mkdir -p " . expand(s:dir) . "/{backup,undo,tmp}")
 end
 
-" Useful status information at bottom of screen
-"set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}\ %{exists('g:loaded_rvm')?rvm#statusline():''}\ %=%-16(\ %l,%c-%v\ %)%P
+" [EVALUATE] Statusline configs
 set statusline=%f
 set statusline+=\ [%{strlen(&fenc)?&fenc:'none'},
 set statusline+=\ %{&ff}]
@@ -102,33 +116,52 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#formatter='unique_tail_improved'
+"Airline configs
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+" testing
+let g:airline_detect_paste=1
 
-set wildmenu
-set wildmode=list:longest
-set hidden
-colorscheme molokai
-set t_Co=256
-let mapleader="\<Space>"
+" Syntastic configs
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_enable_signs=1
+let g:syntastic_check_on_open=1
+let g:syntastic_auto_jump=1
+let g:syntastic_enable_highlighting=1
+
 nnoremap ; :
+
+" Alternates to last file
 nnoremap <leader>l :e#<CR>
-nnoremap <leader>y :YRShow<CR>
-nmap <silent> <leader>/ :nohlsearch<CR>
-nmap <silent> <leader>bd <Plug>Kwbd
+
+"nnoremap <leader>y :YRShow<CR>
+
+" tagbar plugin map key
+" map <leader>T :TlistToggle<CR>
 nmap <silent> <leader>b :TagbarToggle<CR>
+
+" NERDTree plugin map key
+map <leader>nt :NERDTreeToggle<CR>
+
+" Save as root user
 cmap w!! w !sudo tee % >/dev/null
 
-" run the above commands only if vim is compiled with autocmd
-if has("autocmd")
-  autocmd BufWritePost .vimrc source $MYVIMRC
-  autocmd BufWritePre *.rb,*.erb,*.html,*.js,*.css,*.php,*.py,*.json :call <SID>StripTrailingWhitespaces()
-endif
+" Remove numbers and formatter
+imap <F12> <c-o>:set list! \| set nu! \| call gitgutter#toggle()<CR>
+map <F12> :set list! \| set nu! \| call gitgutter#toggle()<CR>
 
-" function to remove trailing white space (while saving cursor position)
+" Removing tidying spaces
+" run the above commands only if vim is compiled with autocmd
 " http://vimcasts.org/episodes/tidying-whitespace/
 
+if has("autocmd")
+  autocmd BufWritePost .vimrc source $MYVIMRC
+  autocmd BufWritePre *.pp,*.rb,*.erb,*.html,*.js,*.css,*.php,*.py,*.json :call <SID>StripTrailingWhitespaces()
+endif
+
+" StripTrailingWhitespaces: Remove traling spaces in the entire text.
 function! <SID>StripTrailingWhitespaces()
   let _s=@/
   let l = line(".")
@@ -138,9 +171,9 @@ function! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 
-function! Wipeout()
+" Wipeout: Destroy all buffers that are not open in any tabs or windows.
+function! <SID>Wipeout()
   let l:buffers = range(1, bufnr('$'))
-
   let l:currentTab = tabpagenr()
   try
     let l:tab = 0
@@ -164,45 +197,60 @@ function! Wipeout()
   endtry
 endfunction
 
-map <leader>bw :call Wipeout()<CR>
-map <leader>nt :NERDTreeToggle<CR>
-map <leader>jt <Esc>:%!json_xs -f json -t json-pretty<CR>
-map <leader>T :TlistToggle<CR>
+" DelBlank: Delete blank lines in the entire text.
+function! <SID>DelBlank()
+   let _s=@/
+   let l = line(".")
+   let c = col(".")
+   :g/^\n\{2,}/d
+   let @/=_s
+   call cursor(l, c)
+endfun
 
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_enable_signs=1
-let g:syntastic_check_on_open=1
-let g:syntastic_auto_jump=1
-let g:syntastic_enable_highlighting=1
+" Call function Delblank
+nnoremap <silent> <F4> :call <SID>DelBlank()<CR>
 
-if has("syntax")
-  au BufNewFile,BufRead *.jsonify set filetype=ruby
-endif
+" Call function StripTrailingWhitespaces
+nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 
-imap <F12> <c-o>:set list! \| set nu! \| call gitgutter#toggle()<CR>
-map <F12> :set list! \| set nu! \| call gitgutter#toggle()<CR>
+" Call function Delblank
+nnoremap <silent> <F7> :call <SID>Wipeout()<CR>
 
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
-
-nnoremap <leader>l :e#<CR>
-nnoremap <leader>y :YRShow<CR>
-
-nnoremap <CR> G
-nnoremap <BS> gg
-nnoremap <leader>x :x!<CR>
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q!<CR>
-
-:noremap <leader>> :bprev<CR>
-:noremap <leader>< :bnext<CR>
-noremap <leader>o :tabnew<CR>
-nnoremap <leader>l :set hlsearch!<CR>
-
+" Coping/paste to system clipboard. (Note: '+clipboard' must be enabled)
 vmap <Leader>y "+y
 vmap <Leader>d "+d
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 nmap <Leader>p "+p
 nmap <Leader>P "+P
+" vim-expand-region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+" Go to end of file
+nnoremap <CR> G
+
+" Go to beginning of file
+nnoremap <BS> gg
+
+" Save and exit
+nnoremap <leader>x :x!<CR>
+
+" Save file
+nnoremap <leader>w :w<CR>
+
+" Quit file without save
+"nnoremap <leader>q :q!<CR>
+
+" Managing tabs
+" Kwbd plugin: Close tab
+nmap <silent> <leader>q <Plug>Kwbd
+:noremap <leader>, :bprev<CR>
+:noremap <leader>. :bnext<CR>
+noremap <leader>n :tabnew<CR>
+
+" Hide search highlights
+nnoremap <leader>h :set hlsearch!<CR>
+
+" Clean search highlight
+nmap <silent> <leader>/ :nohlsearch<CR>
