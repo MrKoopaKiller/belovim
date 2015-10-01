@@ -23,13 +23,12 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'mileszs/ack.vim'
-NeoBundle 'mileszs/ack.vim'
 NeoBundle 'msanders/snipmate.vim'
 NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'sheerun/vim-polyglot'
+"NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'stephpy/vim-yaml'
 NeoBundle 'terryma/vim-expand-region'
@@ -42,7 +41,6 @@ NeoBundle 'vim-scripts/endwise.vim'
 NeoBundle 'vim-scripts/kwbdi.vim'
 NeoBundle 'vim-scripts/matchit.zip'
 NeoBundle 'vim-scripts/taglist.vim'
-
 call neobundle#end()
 filetype plugin indent on
 
@@ -131,8 +129,22 @@ let g:syntastic_enable_signs=1
 let g:syntastic_check_on_open=1
 let g:syntastic_auto_jump=1
 let g:syntastic_enable_highlighting=1
+let g:gitgutter_max_signs = 3000
 
 nnoremap ; :
+
+" Enable folding
+set foldmethod=syntax
+set foldlevelstart=2
+
+let javaScript_fold=1         " JavaScript
+let perl_fold=1               " Perl
+let php_folding=1             " PHP
+let r_syntax_folding=1        " R
+let ruby_fold=1               " Ruby
+let sh_fold_enabled=1         " sh
+let vimsyn_folding='af'       " Vim script
+let xml_syntax_folding=1      " XML
 
 " Alternates to last file
 nnoremap <leader>l :e#<CR>
