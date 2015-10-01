@@ -1,5 +1,10 @@
 # Changelog
 
+### belovim 2.2.2 (2015-10-01)
+- Enable folding on long files
+- Removed 'chase/vim-ansible-yaml' plugin
+
+
 ### belovim 2.1.2 (2015-08-10)
 - Fix bug that crash yaml files
 
