@@ -17,29 +17,19 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'corntrace/bufexplorer'
-NeoBundle 'elzr/vim-json'
 NeoBundle 'godlygeek/tabular'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'mileszs/ack.vim'
-NeoBundle 'msanders/snipmate.vim'
-NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'slim-template/vim-slim'
-NeoBundle 'stephpy/vim-yaml'
-NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'vim-scripts/AutoComplPop'
 NeoBundle 'vim-scripts/AutoTag'
-NeoBundle 'vim-scripts/YankRing.vim'
-NeoBundle 'vim-scripts/endwise.vim'
-NeoBundle 'vim-scripts/kwbdi.vim'
-NeoBundle 'vim-scripts/matchit.zip'
-NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'raimondi/delimitmate'
+NeoBundle 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-repeat'
 call neobundle#end()
 filetype plugin indent on
 
@@ -50,7 +40,7 @@ filetype on
 set showcmd
 set hidden
 set list
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:>-,trail:.,precedes:<,extends:>
 set number
 set linebreak
 set nowrap
@@ -90,7 +80,6 @@ let mapleader="\<Space>"
 let s:dir      = has('win32') ? '$APPDATA/Vim' : isdirectory($HOME.'/Library') ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
 let &backupdir = expand(s:dir) . '/backup//'
 let &undodir   = expand(s:dir) . '/undo//'
-let g:yankring_history_dir = expand(s:dir) . '/tmp//'                " YankRing temp dir
 set undofile
 
 if !isdirectory(expand(s:dir))
@@ -115,15 +104,13 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 "Airline configs
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-" testing
-let g:airline_detect_paste=1
 
 " Syntastic configs
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
+let g:syntastic_error_symbol='EE'
+let g:syntastic_warning_symbol='WW'
 let g:syntastic_enable_signs=1
 let g:syntastic_check_on_open=1
 let g:syntastic_auto_jump=1
@@ -147,12 +134,6 @@ let xml_syntax_folding=1      " XML
 
 " Alternates to last file
 nnoremap <leader>l :e#<CR>
-
-"nnoremap <leader>y :YRShow<CR>
-
-" tagbar plugin map key
-" map <leader>T :TlistToggle<CR>
-nmap <silent> <leader>b :TagbarToggle<CR>
 
 " NERDTree plugin map key
 map <leader>nt :NERDTreeToggle<CR>
@@ -235,9 +216,6 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 nmap <Leader>p "+p
 nmap <Leader>P "+P
-" vim-expand-region
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
 
 " Go to end of file
 nnoremap <CR> G
@@ -255,7 +233,6 @@ nnoremap <leader>w :w<CR>
 "nnoremap <leader>q :q!<CR>
 
 " Managing tabs
-" Kwbd plugin: Close tab
 nmap <silent> <leader>q <Plug>Kwbd
 :noremap <leader>, :bprev<CR>
 :noremap <leader>. :bnext<CR>

@@ -51,41 +51,46 @@ $ vim +NeoBundleInstall +qall
 
 #### Managing open files
 ```
-  <leader> + y          => Copy to system clipboard
-  <leader> + p          => Paste the system clipboard
-  <leader> n            => Open a new tab
-  <leader> .            => Move to next tab
-  <leader> ,            => Move to previous tab
-  <leader> q            => Close current tab
-  <leader> l            => Alternates between the last buffer
-  <leader> + w          => Quickly save file (:w)
-  <leader> + x          => Quickly save and exit (:wq!)
+  <leader> + y         => Copy to system clipboard
+  <leader> + p         => Paste the system clipboard
+  <leader> n           => Open a new tab
+  <leader> .           => Move to next tab
+  <leader> ,           => Move to previous tab
+  <leader> q           => Close current tab
+  <leader> l           => Alternates between the last buffer
+  <leader> + w         => Quickly save file (:w)
+  <leader> + x         => Quickly save and exit (:wq!)
 ```
 
 #### Searching
 ```
-  :Ack {pattern}        => Search for a pattern inside project
-  <leader> + h          => Hide search highlights (hlsearch!)
-  <leader> + /          => Clear search highlights
+  <leader> + h         => Hide search highlights (hlsearch!)
+  <leader> + /         => Clear search highlights
 ```
 
 #### Editing
 ```
-  :Tab /{pattern}       => Align the selected text with the chose character
+  :Tab /{pattern}      => Align the selected text with the chose character
+  crs                  => Change to snake_case
+  crm                  => Change to MixedCase
+  crc                  => Change to camelCase
+  cru                  => Change to UPPERCASE
+
+  :%Subvert/foo_regex/bar_regex/g         => :%Subvert/facilit{y,ies}/building{,s}/g
 ```
 
 #### Utils
 ```
-  <leader> + nt          => Open/Close NERDTree
-  <leader> + b           => Open/Close Tagbar (functions panel)
-  <leader> + be          => Open/Close Buffer Explorer
+  <leader> + nt        => Open/Close NERDTree
+  <leader> + b         => Open/Close Tagbar (functions panel)
+  <leader> + be        => Open/Close Buffer Explorer
 ```
 
 #### Functions
 ```
-  F5     => StripTrailingWhitespaces: Remove trailing spaces in the entire text.
-  F4     => DelBlank: Delete double blank lines.
-  F7     => Wipeout: Destroy all buffers that are not open in any tabs or windows.
-  F12    => Remove numbers and formatters
-  :w!!   => Save file with sudo privileges
+  F5            => StripTrailingWhitespaces: Remove trailing spaces in the entire text.
+  F4            => DelBlank: Delete double blank lines.
+  F7            => Wipeout: Destroy all buffers that are not open in any tabs or windows.
+  F12           => Remove numbers and formatters
+  :w!!          => Save file with sudo privileges
 ```
