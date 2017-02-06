@@ -40,6 +40,8 @@ NeoBundle 'vim-scripts/endwise.vim'
 NeoBundle 'vim-scripts/kwbdi.vim'
 NeoBundle 'vim-scripts/matchit.zip'
 NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'gregsexton/gitv'
+NeoBundle 'hashivim/vim-terraform.git'
 call neobundle#end()
 filetype plugin indent on
 
@@ -133,17 +135,17 @@ let g:gitgutter_max_signs = 3000
 nnoremap ; :
 
 " Enable folding
-set foldmethod=syntax
-set foldlevelstart=2
+"set foldmethod=syntax
+"set foldlevelstart=2
 
-let javaScript_fold=1         " JavaScript
-let perl_fold=1               " Perl
-let php_folding=1             " PHP
-let r_syntax_folding=1        " R
-let ruby_fold=1               " Ruby
-let sh_fold_enabled=1         " sh
-let vimsyn_folding='af'       " Vim script
-let xml_syntax_folding=1      " XML
+"let javaScript_fold=1         " JavaScript
+"let perl_fold=1               " Perl
+"let php_folding=1             " PHP
+"let r_syntax_folding=1        " R
+"let ruby_fold=1               " Ruby
+"let sh_fold_enabled=1         " sh
+"let vimsyn_folding='af'       " Vim script
+"let xml_syntax_folding=1      " XML
 
 " Alternates to last file
 nnoremap <leader>l :e#<CR>
