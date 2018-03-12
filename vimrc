@@ -42,6 +42,8 @@ NeoBundle 'vim-scripts/matchit.zip'
 NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'hashivim/vim-terraform.git'
+NeoBundle 'martinda/Jenkinsfile-vim-syntax'
+
 call neobundle#end()
 filetype plugin indent on
 
@@ -52,7 +54,7 @@ filetype on
 set showcmd
 set hidden
 set list
-set listchars=tab:▸\ ,eol:¬
+:set listchars=nbsp:☠,tab:▸\ ,eol:¬
 set number
 set linebreak
 set nowrap
