@@ -89,7 +89,7 @@ function linux_install() {
   done
 
   # call base_install function
-  base_install
+  fonts_install
 
   echo "Configuring VIM..."
   if [ ! -d ~/.fonts/ ]; then
