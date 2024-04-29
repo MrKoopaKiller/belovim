@@ -1,4 +1,7 @@
 # belovim
+
+> :warning: This project has been deprecated in favor of [dotfiles](https://github.com/MrKoopaKiller/dotfiles) and no longer will receive updates.
+
 vimrc
 > v2.1.1
 
